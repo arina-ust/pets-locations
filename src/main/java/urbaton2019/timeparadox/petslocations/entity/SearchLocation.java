@@ -12,33 +12,32 @@ public class SearchLocation {
     @Id
     private final Long petId;
     @EqualsAndHashCode.Exclude private Date lastSeenTime;
-    @EqualsAndHashCode.Exclude private GeoPoint lastSeenLocation;
-    @EqualsAndHashCode.Exclude private GeoPoint homeLocation;
+    @EqualsAndHashCode.Exclude private GeoPoint lastSeenLocationPoint;
+    @EqualsAndHashCode.Exclude private GeoPoint homeLocationPoint;
     @EqualsAndHashCode.Exclude private SearchArea lastSeenSearchArea;
     @EqualsAndHashCode.Exclude private SearchArea homeArea;
 
 
-    private SearchLocation(Long petId, Date lastSeenTime, GeoPoint lastSeenLocation, GeoPoint homeLocation,
+    private SearchLocation(Long petId, Date lastSeenTime, GeoPoint lastSeenLocationPoint, GeoPoint homeLocationPoint,
                            SearchArea lastSeenSearchArea, SearchArea homeArea) {
         this.petId = petId;
         this.lastSeenTime = lastSeenTime;
-        this.lastSeenLocation = lastSeenLocation;
-        this.homeLocation = homeLocation;
+        this.lastSeenLocationPoint = lastSeenLocationPoint;
+        this.homeLocationPoint = homeLocationPoint;
         this.lastSeenSearchArea = lastSeenSearchArea;
         this.homeArea = homeArea;
     }
 
-    private SearchLocation withId(Long petId) {
-        return new SearchLocation(petId, this.lastSeenTime, this.lastSeenLocation, this.homeLocation,
+    public SearchLocation withId(Long petId) {
+        return new SearchLocation(petId, this.lastSeenTime, this.lastSeenLocationPoint, this.homeLocationPoint,
                 this.lastSeenSearchArea, this.homeArea);
     }
 
-    public static SearchLocation of(Date lastSeenTime, GeoPoint lastSeenLocation, GeoPoint homeLocation) {
+    public static SearchLocation of(Date lastSeenTime, GeoPoint lastSeenLocationPoint, GeoPoint homeLocationPoint) {
         // TODO: stub compute methods
-//        SearchArea lastSeenSearchArea = computeLastSeenArea(lastSeenTime, lastSeenLocation);
-//        SearchArea homeSearchArea = computeHomeArea(homeLocation);
-//        return new SearchLocation(null, lastSeenTime, lastSeenLocation, homeLocation,
-//                lastSeenSearchArea, homeSearchArea);
-        return null;
+//        SearchArea lastSeenSearchArea = computeLastSeenArea(lastSeenTime, lastSeenLocationPoint);
+//        SearchArea homeSearchArea = computeHomeArea(homeLocationPoint);
+        return new SearchLocation(null, lastSeenTime, lastSeenLocationPoint, homeLocationPoint,
+                null, null);
     }
 }
