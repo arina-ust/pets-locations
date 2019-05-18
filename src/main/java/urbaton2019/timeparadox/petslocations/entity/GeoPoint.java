@@ -5,12 +5,13 @@ import lombok.Value;
 @Value
 public class GeoPoint {
 
-    private final double longitude;
-    private final double latitude;
+    private static final String type = "Point";
+
+    private final double[] coordinates = new double[2];
 
     private GeoPoint(double longitude, double latitude) {
-        this.longitude = longitude;
-        this.latitude = latitude;
+        coordinates[0] = longitude;
+        coordinates[1] = latitude;
     }
 
     public static GeoPoint of(double longitude, double latitude) {

@@ -1,6 +1,5 @@
 package urbaton2019.timeparadox.petslocations.entity;
 
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
@@ -8,10 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-@Data
 public class Zone {
 
-    private String id;
+    @Getter @EqualsAndHashCode.Include private String id;
     @EqualsAndHashCode.Exclude private List<GeoPoint> polygon = new ArrayList<>();
 
     private Zone(String id) {
