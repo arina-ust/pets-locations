@@ -6,8 +6,7 @@ import lombok.Data;
 public class SearchAreaDTO {
 
     private long petId;
-    private double[][] searchAreaCoordinates;
-    private double[][] homeAreaCoordinates;
+    private double[][][] searchAreaCoordinates;
 
     public SearchAreaDTO(long petId) {
         this.petId = petId;

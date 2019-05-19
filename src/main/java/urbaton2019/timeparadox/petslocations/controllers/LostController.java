@@ -1,5 +1,6 @@
 package urbaton2019.timeparadox.petslocations.controllers;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,8 +19,8 @@ public class LostController {
     @Resource
     private SearchLocationService searchLocationService;
 
-    @PostMapping("/lostUpdate")
-    public MessageDTO updateSearchLocation(@RequestBody MarkerDTO markerDTO) {
+    @PostMapping("/lost-update")
+    public ResponseEntity<MessageDTO> updateSearchLocation(@RequestBody MarkerDTO markerDTO) {
         GeoPoint lastSeenPoint = GeoPoint.of(markerDTO.getLastSeenLongitude(), markerDTO.getLastSeenLatitude());
         GeoPoint homePoint = GeoPoint.of(markerDTO.getHomeLongitude(), markerDTO.getHomeLatitude());
         Date lastSeenDate = new Date(markerDTO.getTimeStamp());
@@ -29,6 +30,6 @@ public class LostController {
 
         MessageDTO messageDTO = new MessageDTO(savedLocation.getPetId(), true, "");
 
-        return messageDTO;
+        return ResponseEntity.ok(messageDTO);
     }
 }
