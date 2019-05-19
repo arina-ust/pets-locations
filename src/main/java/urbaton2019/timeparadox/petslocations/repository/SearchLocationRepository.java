@@ -6,8 +6,5 @@ import urbaton2019.timeparadox.petslocations.entity.SearchLocation;
 
 @Repository
 public interface SearchLocationRepository extends MongoRepository<SearchLocation, Long> {
-//
-//    SearchLocation findById(Long petId);
-//
-//    SearchLocation deleteById(Long petId);
+
 }

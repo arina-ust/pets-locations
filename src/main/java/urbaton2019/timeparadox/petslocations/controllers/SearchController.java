@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import urbaton2019.timeparadox.petslocations.controllers.dto.MarkerDTO;
 import urbaton2019.timeparadox.petslocations.controllers.dto.SearchAreaDTO;
 import urbaton2019.timeparadox.petslocations.entity.GeoPoint;
-import urbaton2019.timeparadox.petslocations.entity.SearchLocation;
 import urbaton2019.timeparadox.petslocations.entity.Zone;
 import urbaton2019.timeparadox.petslocations.service.SearchLocationService;
 

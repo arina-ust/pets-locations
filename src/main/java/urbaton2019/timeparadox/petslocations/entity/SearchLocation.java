@@ -3,6 +3,8 @@ package urbaton2019.timeparadox.petslocations.entity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.data.annotation.Id;
+import urbaton2019.timeparadox.petslocations.algorithm.HomeArea;
+import urbaton2019.timeparadox.petslocations.algorithm.LastSeenArea;
 
 import java.util.Date;
 
@@ -34,10 +36,9 @@ public class SearchLocation {
     }
 
     public static SearchLocation of(Date lastSeenTime, GeoPoint lastSeenLocationPoint, GeoPoint homeLocationPoint) {
-        // TODO: stub compute methods
-//        SearchArea lastSeenSearchArea = computeLastSeenArea(lastSeenTime, lastSeenLocationPoint);
-//        SearchArea homeSearchArea = computeHomeArea(homeLocationPoint);
+        SearchArea lastSeenSearchArea = LastSeenArea.compute(lastSeenTime, lastSeenLocationPoint);
+        SearchArea homeSearchArea = HomeArea.compute(homeLocationPoint);
         return new SearchLocation(null, lastSeenTime, lastSeenLocationPoint, homeLocationPoint,
-                null, null);
+                lastSeenSearchArea, homeSearchArea);
     }
 }
