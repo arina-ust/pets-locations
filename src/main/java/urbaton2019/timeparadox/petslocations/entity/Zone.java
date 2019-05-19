@@ -21,18 +21,18 @@ public class Zone {
     }
 
     public void setPolygon(List<GeoPoint> polygon) {
-        GeoPoint firstPoint = polygon.get(0);
-        GeoPoint lastPoint = polygon.get(polygon.size() - 1);
-        if (!firstPoint.equals(lastPoint)) {
-            throw new IllegalArgumentException("First point must be equal to the last point");
-        }
-
         this.polygon = polygon;
     }
 
     public static Zone of(Zone zone) {
         Zone newZone = new Zone(UUID.randomUUID().toString());
         newZone.setPolygon(zone.getPolygon());
+        return newZone;
+    }
+
+    public static Zone of(List<GeoPoint> polygon) {
+        Zone newZone = new Zone(UUID.randomUUID().toString());
+        newZone.setPolygon(polygon);
         return newZone;
     }
 }

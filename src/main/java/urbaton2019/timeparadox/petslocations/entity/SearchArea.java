@@ -11,6 +11,10 @@ public class SearchArea {
 
     private static final String type = "MultiPolygon";
 
-    private final List<Zone> coordinates = new ArrayList<>();
+    private List<Zone> coordinates = new ArrayList<>();
+
+    public void addZone(Zone zone) {
+        coordinates.add(zone);
+    }
 
 }

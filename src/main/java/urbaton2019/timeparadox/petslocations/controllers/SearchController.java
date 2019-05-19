@@ -95,7 +95,7 @@ public class SearchController {
             searchCoordinates[i] = new double[zone.getPolygon().size()][];
             for (int j = 0; j < zone.getPolygon().size(); j++) {
                 GeoPoint point = zone.getPolygon().get(j);
-                double[] coordinates = {point.getLongitude(), point.getLatitude()};
+                double[] coordinates = {point.getLatitude(), point.getLongitude()};
                 searchCoordinates[i][j] = coordinates;
             }
         }
