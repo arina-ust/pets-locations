@@ -1,14 +1,19 @@
 package urbaton2019.timeparadox.petslocations.entity;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import urbaton2019.timeparadox.petslocations.algorithm.HomeArea;
 import urbaton2019.timeparadox.petslocations.algorithm.LastSeenArea;
 
 import java.util.Date;
 
 @Data
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Document
 public class SearchLocation {
 
     @Id
@@ -19,16 +24,6 @@ public class SearchLocation {
     @EqualsAndHashCode.Exclude private SearchArea lastSeenSearchArea;
     @EqualsAndHashCode.Exclude private SearchArea homeArea;
 
-
-    private SearchLocation(Long petId, Date lastSeenTime, GeoPoint lastSeenLocationPoint, GeoPoint homeLocationPoint,
-                           SearchArea lastSeenSearchArea, SearchArea homeArea) {
-        this.petId = petId;
-        this.lastSeenTime = lastSeenTime;
-        this.lastSeenLocationPoint = lastSeenLocationPoint;
-        this.homeLocationPoint = homeLocationPoint;
-        this.lastSeenSearchArea = lastSeenSearchArea;
-        this.homeArea = homeArea;
-    }
 
     public SearchLocation withId(Long petId) {
         return new SearchLocation(petId, this.lastSeenTime, this.lastSeenLocationPoint, this.homeLocationPoint,
